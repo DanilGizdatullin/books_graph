@@ -8,7 +8,8 @@ import json
 
 
 # path = config.path_to_users_library
-path = "/Users/danil.gizdatullin/Projects/Recommendations/user_book.csv"
+# path = "/Users/danil.gizdatullin/Projects/Recommendations/user_book.csv"
+path = "/Users/danil.gizdatullin/Projects/Recommendations/user_book1.csv"
 
 # Step 1 - create users_library - dictionary of lists and set of all books
 books = set([])
@@ -89,4 +90,7 @@ for book1_book2 in books_affinity.iterkeys():
     book2 = int(book_book[1])
     books_affinity[book1_book2] *= (float(n_users) / (p_books[book1] * p_books[book2]))
 
-print(len(books_affinity))
+path_to_save_affinity = "/Users/danil.gizdatullin/Projects/Recommendations/books_graph/books_affinity.json"
+with open(path_to_save_affinity, 'w') as fp:
+    json.dump(books_affinity, fp)
+
