@@ -2,10 +2,13 @@ __author__ = 'danil.gizdatullin'
 import itertools
 import numpy as np
 import config
+import datetime
+import json
 # import matplotlib.pyplot as plt
 
 
-path = config.path_to_users_library
+# path = config.path_to_users_library
+path = "/Users/danil.gizdatullin/Projects/Recommendations/user_book.csv"
 
 # Step 1 - create users_library - dictionary of lists and set of all books
 books = set([])
@@ -53,10 +56,14 @@ num_pair = 1
 pairs = n_users
 for user in users_library.iterkeys():
     #
-    print ("%i from %i") % (num_pair, pairs)
+    # print ("%i from %i") % (num_pair, pairs)
+    if num_pair == 1:
+        print(datetime.datetime.now().time())
+    if num_pair == 1000000:
+        print(datetime.datetime.now().time())
     num_pair += 1
     books_of_current_user = users_library[user]
-    if len(books_of_current_user) < 1000:
+    if len(books_of_current_user) < 800:
         for book in books_of_current_user:
             p_books[book] += 1
         for pair in itertools.combinations(books_of_current_user, r=2):
@@ -71,6 +78,7 @@ for user in users_library.iterkeys():
                 books_affinity[key] += 1
             else:
                 books_affinity[key] = 1
+print("Second part")
 num_pair = 1
 pairs = len(books_affinity)
 for book1_book2 in books_affinity.iterkeys():
