@@ -58,11 +58,11 @@ pairs = n_users
 for user in users_library.iterkeys():
     #
     # print ("%i from %i") % (num_pair, pairs)
-    if num_pair == 1:
-        print(datetime.datetime.now().time())
-    if num_pair == 1000000:
-        print(datetime.datetime.now().time())
-    num_pair += 1
+    # if num_pair == 1:
+    #     print(datetime.datetime.now().time())
+    # if num_pair == 1000000:
+    #     print(datetime.datetime.now().time())
+    # num_pair += 1
     books_of_current_user = users_library[user]
     if len(books_of_current_user) < 800:
         for book in books_of_current_user:
@@ -83,7 +83,7 @@ print("Second part")
 num_pair = 1
 pairs = len(books_affinity)
 for book1_book2 in books_affinity.iterkeys():
-    print ("%i from %i") % (num_pair, pairs)
+    # print ("%i from %i") % (num_pair, pairs)
     num_pair += 1
     book_book = book1_book2.split('_')
     book1 = int(book_book[0])
