@@ -1,8 +1,8 @@
 __author__ = 'danil.gizdatullin'
 import itertools
-import numpy as np
-import config
-import datetime
+# import numpy as np
+# import config
+# import datetime
 import json
 # import matplotlib.pyplot as plt
 
@@ -16,8 +16,8 @@ books = set([])
 users_library = {}
 data_file = open(path, 'r')
 next(data_file)
-for expression in data_file:
-    data_line = expression[0:-1].split(',')
+for line in data_file:
+    data_line = line[0:-1].split(',')
     user = str(data_line[0])
     book = int(data_line[1])
     books.add(book)
